@@ -5,11 +5,12 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
-    private TextView txtFrase;
+    private EditText txtFrase;
     private Button btnCaracteres;
     private Button btnPalabras;
 
@@ -21,11 +22,24 @@ public class MainActivity extends AppCompatActivity {
 
         inicializarVariables();
 
-        String frase = txtFrase.getText().toString();
+
         btnCaracteres.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(MainActivity.this, frase.length(), Toast.LENGTH_SHORT).show();
+                String frase = txtFrase.getText().toString();
+
+                Toast.makeText(MainActivity.this, "La frase contiene " + frase.length() + " carácteres", Toast.LENGTH_SHORT).show();
+            }
+        });
+
+        btnPalabras.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                String frase = txtFrase.getText().toString();
+                String[] palabras = frase.split(" ");
+                int contador = palabras.length;
+
+                Toast.makeText(MainActivity.this, "La frase contiene " + contador + " palabras", Toast.LENGTH_SHORT).show();
             }
         });
     }
