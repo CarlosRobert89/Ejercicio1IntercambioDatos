@@ -14,14 +14,12 @@ public class MainActivity extends AppCompatActivity {
     private Button btnCaracteres;
     private Button btnPalabras;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
         inicializarVariables();
-
 
         btnCaracteres.setOnClickListener(new View.OnClickListener() {
             @Override
